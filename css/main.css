@@ -1839,25 +1839,42 @@ button.close {
 .main-footer {
   background: #19110e;
   border-top: 2px solid #e26c4c;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  width: 100%;
 }
 .main-footer .icons-nav {
   text-align: center;
+  margin-top: 0;
 }
 .main-footer .icons-nav li {
   display: inline-block;
+  line-height: 1.325rem;
+  padding: 0.9rem 2.5rem 0.5rem;
 }
 .main-footer .icons-nav li .icon {
   color: #471406;
   display: block;
+  font-size: 1.35rem;
 }
 .main-footer .icons-nav li span {
   color: #5e2616;
+  font-size: 0.725rem;
+  font-weight: 600;
+}
+.main-footer .icons-nav li:first-child {
+  padding-left: 0.25rem;
+}
+.main-footer .icons-nav li:last-child {
+  padding-right: 0.25rem;
 }
 .main-footer .icons-nav .active .icon {
   color: #e26c4c;
 }
 .main-footer .icons-nav .active span {
   color: #ffdcd2;
+  font-weight: 700;
 }
 fieldset {
   padding: 0;
@@ -3825,6 +3842,3 @@ img {
     display: none;
   }
 }
-/* ------------------------------------------ */
-/* Global Utilities, Fallbacks, Mixins ------ */
-/* ------------------------------------------ */
