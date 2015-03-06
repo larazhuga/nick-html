@@ -1845,6 +1845,7 @@ button.close {
 }
 .main-footer .icons-nav li {
   display: inline-block;
+  padding: 6.25rem 2.25rem;
 }
 .main-footer .icons-nav li .icon {
   color: #471406;
@@ -1852,6 +1853,7 @@ button.close {
 }
 .main-footer .icons-nav li span {
   color: #5e2616;
+  font-size: 1.8125rem;
 }
 .main-footer .icons-nav .active .icon {
   color: #e26c4c;
