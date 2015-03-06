@@ -1646,6 +1646,17 @@ button.close {
 }
 /* Global Components ------------------------ */
 /* ------------------------------------------ */
+.header-navbar-top .icon {
+  color: #e26c4c;
+}
+.header-navbar-top .icon-bar {
+  display: block;
+  border-radius: 1rem;
+  margin: 0.15rem 0.15rem;
+  width: 1.85rem;
+  height: 0.3rem;
+  background: #e26c4c;
+}
 .header-navbar,
 .header-toolbar {
   display: block;
