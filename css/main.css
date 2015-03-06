@@ -437,7 +437,7 @@ th {
   font-style: normal;
 }
 html {
-  font-family: "Aileron, sans-serif;";
+  font-family: "Aileron", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 body {
@@ -1838,6 +1838,7 @@ button.close {
 }
 .main-footer {
   background: #19110e;
+  border-top: 2px solid #e26c4c;
 }
 .main-footer .icons-nav {
   text-align: center;
@@ -3821,6 +3822,3 @@ img {
     display: none;
   }
 }
-/* ------------------------------------------ */
-/* Global Utilities, Fallbacks, Mixins ------ */
-/* ------------------------------------------ */
