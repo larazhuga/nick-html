@@ -6,41 +6,45 @@
 // footer icons
 // ----------------------
 .main-footer{
-	background: @bg-footer;
-	border-top: 2px solid @border-orandge;
 	bottom:0;
 	position:fixed;
 	left:0;
-	width:100%;
-	.icons-nav  { 
-	 	text-align: center;
-	 	margin-top: 0;
-		li{
-			display:inline-block;
-			line-height: 53 * @toRems;
-			padding: (36 * @toRems) (100 * @toRems) (20 * @toRems);
-			.icon{
-				color: @footer-icon-color; 
-				display:block;
-				font-size: 54 * @toRems;
+	width:100%;	
+	.footer-content-center{
+		background: @bg-footer;
+		border-top: 2px solid @border-orandge;
+		max-width: @max-width-center;
+		.icons-nav  { 
+		 	text-align: center;
+		 	margin-top: 0;
+			li{
+				display:inline-block;
+				line-height: 53 * @toRems;
+				padding: (36 * @toRems) (100 * @toRems) (20 * @toRems);
+				.icon{
+					color: @footer-icon-color; 
+					display:block;
+					font-size: 54 * @toRems;
+				}
+				span{
+					color: @footer-txt-color;
+					font-size: 29 * @toRems;
+					font-weight:600;
+				}
+				&:first-child{
+					padding-left: 10 * @toRems;
+				}
+				&:last-child{
+					padding-right: 10 * @toRems;
+				}	
 			}
-			span{
-				color: @footer-txt-color;
-				font-size: 29 * @toRems;
-				font-weight:600;
-			}
-			&:first-child{
-				padding-left: 10 * @toRems;
-			}
-			&:last-child{
-				padding-right: 10 * @toRems;
-			}	
 		}
 	}
 }
 
-
-.main-footer .icons-nav .active {
+// footer icons active
+// ----------------------
+.main-footer .footer-content-center .icons-nav .active {
 	.icon{
 		color: @footer-icon-color-active; 
 	}
