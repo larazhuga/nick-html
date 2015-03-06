@@ -8,18 +8,32 @@
 .main-footer{
 	background: @bg-footer;
 	border-top: 2px solid @border-orandge;
+	bottom:0;
+	position:fixed;
+	left:0;
+	width:100%;
 	.icons-nav  { 
 	 	text-align: center;
+	 	margin-top: 0;
 		li{
 			display:inline-block;
-			padding: (100 * @toRems) (36 * @toRems);
+			line-height: 53 * @toRems;
+			padding: (36 * @toRems) (100 * @toRems) (20 * @toRems);
 			.icon{
 				color: @footer-icon-color; 
 				display:block;
+				font-size: 54 * @toRems;
 			}
 			span{
 				color: @footer-txt-color;
 				font-size: 29 * @toRems;
+				font-weight:600;
+			}
+			&:first-child{
+				padding-left: 10 * @toRems;
+			}
+			&:last-child{
+				padding-right: 10 * @toRems;
 			}	
 		}
 	}
@@ -32,6 +46,7 @@
 	}
 	span{
 		color: @footer-txt-color-active;
+		font-weight:700;
 	}
 }
 
