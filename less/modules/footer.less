@@ -6,111 +6,31 @@
 // footer icons
 // ----------------------
 
-.main-footer .icon   { 
-	color: @footer-icon-color; 
-
+.main-footer .icons-nav  { 
+ 	text-align: center;
+	li{
+		display:inline-block;
+		.icon{
+			color: @footer-icon-color; 
+			display:block;
+		}
+		span{
+			color: @footer-txt-color;
+		}	
+	}
 }
-.active {
+
+.main-footer .icons-nav .active {
 	.icon{
 		color: @footer-icon-color-active; 
 	}
-}
-
-.footer-toggle {
-	.font(14, 14, 0);
-	color: @gray-dark;
-	background-color: transparent;
-	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-	border: 1px solid transparent;
-	position: relative;
-	padding: (4 * @toRems) 0;
-	margin:  0;
-
-	&:focus {
-		outline: 0;
-	}
-
-	@media (min-width: @screen-sm) {
-		display: none;
-	}
-}
-
-.footer-nav {
-	margin: -(16 * @toRems) -(24 * @toRems) (16 * @toRems);
-
-	a {
-		.font(14, 14, 0);
-		font-weight: normal;
-		color:    @gray-medium;
-		padding:  (20 * @toRems) (24 * @toRems);
-		display:  block;
-		position: relative;
-		border-bottom: solid 1px @border-color;
-
-		&:hover,
-		&:focus {
-			color: @gray-dark;
-			text-decoration: none;
-			outline: 0;
-		}
-
-		&:active,
-		&.active {
-			color: @accent-blue;
-			text-decoration: none;
-			background-color: @gray-light;
-			outline: 0;
-		}
-	}
-
-	@media (min-width: @screen-sm) {
-		margin: 0;
-
-		a {
-			.font(12, 14, 0);
-			display: inline-block;
-			padding: (4 * @toRems);
-			border-bottom: 0;
-
-			& + a {
-				margin-left: (12 * @toRems);
-			}
-		}
-	}
-}
-
-.footer-nav-collapse {
-	overflow-x: visible;
-	padding: 0;
-	border-top: 1px solid @border-color-light;
-	&:extend(.clearfix all);
-	-webkit-overflow-scrolling: touch;
-
-	@media (min-width: @screen-sm) {
-		width: auto;
-		border-top: 0;
-		box-shadow: none;
+	span{
+		color: @footer-txt-color-active;
 	}
 }
 
 
-// Responsiveness (ish)
-// --------------------------
-// Remove this after javascript implementation
 
-@media (max-width: @screen-xs-max) {
-	.layout-footer {
-		.footer-nav {
-			.hidden();
-		}
-		&:hover,
-		&:focus {
-			.footer-nav {
-				.visible();
-				.transition(all 1s ease-in-out);
-			}
-		}
-	}
-}
+
 
 // End Remove this after javascript implementation
