@@ -1,0 +1,262 @@
+/* Main Layout --------------------------- */
+// This section will unify all the main layout elements
+/* ------------------------------------------ */
+
+.layout-header {
+	.row ( 100%; @padding: 0; @margin: 0 auto; ); 
+	background-color: @header-bg-color;
+	border-bottom: solid 1px @border-color;
+
+	&.layout-header-fixed {
+		top:   0;
+		.zindex('layout-header-fixed');
+	}
+}
+
+
+.layout-footer {
+	.row ( 100%; @padding: 16 * @toRems 24 * @toRems; @margin: 0 auto; );
+	background-color: @footer-bg-color; 
+	margin-top: -(55 * @toRems);
+	display: block;
+	border-top: solid 1px @border-color;
+
+	&.layout-footer-fixed {
+		bottom:   0;
+		.zindex('layout-footer-fixed');
+	}
+}
+
+
+.layout-header, 
+.layout-footer {
+	&.layout-header-fixed,
+	&.layout-footer-fixed {
+		position: fixed;
+		left:  0;
+		right: 0;
+
+		& + .layout-body {
+			//padding-top:     80 * @toRems;    //only header
+			padding-top:      136 * @toRems;	//header + toolbar
+			padding-bottom:    55 * @toRems;
+		}
+	}
+}
+
+
+.layout-body {
+	.row(100%);
+	.flex-display(flex);
+	padding-bottom:    55 * @toRems;
+	min-height:    100%;
+	position: relative;
+
+	> &[class*='layout-col'] {
+		.flex(1 1 auto);
+	}
+}
+
+// Main column
+// --------------------------
+
+.layout-col-content {
+	margin:  0;
+	padding: 0;
+	max-width: 100%;
+	overflow: auto;
+	position: relative;
+
+	.content-col {
+		&:before {
+			content: '';
+			background-color: @white;
+			border-left: solid 1px @border-color;
+			position: absolute;
+			top:    0;
+			bottom: 0;
+			z-index: -1;
+		}
+		&:first-of-type:before {
+			left: 0;
+		}
+		&:last-of-type:before {
+			right: 0;
+		}
+	}
+
+	.content-col {
+		&:first-of-type {
+			 > .container {
+				max-width: 100%;
+
+				@media (min-width: @screen-xs) and (max-width: @screen-xs-max) {
+					max-width: 95%;
+				}
+				@media (min-width: @screen-lg) and (max-width: @screen-lg-max) {
+					max-width: 85%;
+				}
+				@media (min-width: @screen-xlg) {
+					max-width: 75%;
+				}
+			}
+		}
+
+		&:last-of-type {
+			 > .container {
+				max-width: 100%;
+				
+				@media (min-width: @screen-xs) and (max-width: @screen-xs-max) {
+					max-width: 90%;
+				}
+				@media (min-width: @screen-lg) {
+					aside {
+						max-width: (360 * @toRems);
+					}
+				}
+			}	
+		}	
+	}
+}
+
+// add some space between the modules
+
+.content-col {
+	> .container {
+	 	> [class*='upload-'] {
+			&:first-child,
+			&:only-child {
+				margin-top: 0;
+			}
+		}
+	}
+	
+	&:first-of-type {
+		 > .container {
+		 	> [class*='upload-'] {
+				& + [class*='upload-'] {
+					margin-top: (24 * @toRems);	
+				}
+			}
+		}
+	}
+
+	&:last-of-type {
+		 > .container {
+			> [class*='upload-'] {
+				& + [class*='upload-'] {
+					margin-top: (6 * @toRems);	
+				}
+			}
+		}	
+	}	
+}
+
+// Add some top spacing on alert messages
+.content-col {
+	> .alert {
+		&:first-child,
+		&:first-of-type,
+		&:only-child {
+			margin-top: (18 * @toRems);
+		}
+	}
+}
+
+
+// Left side column
+// --------------------------
+
+.layout-col-aside {
+	background-color: @body-bg-color;
+	&.is-fixed {
+		width: (160 * @toRems);
+		.flex(0 0 (160 * @toRems));
+	}
+}
+
+
+// Columns spacing
+// --------------------------
+
+.layout-col-content {
+	.content-col {
+		&:first-of-type, 
+		&:first-of-type:before {
+			.cols ( @colspan: 8; @padding: 0 (20 * @toRems) (24 * @toRems); @gutter: 0; );
+		}
+		&:last-of-type, 
+		&:last-of-type:before {
+			.cols ( @colspan: 4; @padding: 0 (20 * @toRems) (24 * @toRems); @gutter: 0; @edge: true; );
+		}
+	}
+}
+
+.layout-col-aside {
+	.cols ( @colspan: 2; @padding: (20 * @toRems); @gutter: 1; @edge: true; );
+}
+
+
+// Responsive behaviour
+// --------------------------------
+
+@media (max-width: @screen-lg) {
+	.layout-col-aside {
+		.cols ( @colspan: 1; @total_cols: 3; @padding: (12 * @toRems) (16 * @toRems); @gutter: 1; @edge: true; );
+		&.is-fixed {
+			width: (120 * @toRems);
+			.flex(0 0 (120 * @toRems));
+		}	
+	}
+	.layout-col-content {
+		.content-col {
+			&:first-of-type, 
+			&:first-of-type:before {
+				.cols ( @colspan: 8; @padding: 0 (20 * @toRems) (16 * @toRems); @gutter: 0; );
+			}
+			&:last-of-type, 
+			&:last-of-type:before {
+				.cols ( @colspan: 4; @padding: 0 (20 * @toRems) (16 * @toRems); @gutter: 0; @edge: true; );
+			}
+		}
+	}
+}
+@media (max-width: @screen-md) {
+	.layout-col-aside {
+		&.is-fixed {
+			display: none;
+			visibility: hidden;
+		}	
+	}
+
+	.layout-col-content {
+		.content-col {
+			&:first-of-type, 
+			&:first-of-type:before {
+				.cols ( @colspan: 7; @padding: 0 (16 * @toRems) (12 * @toRems); @gutter: 0; );
+			}
+			&:last-of-type, 
+			&:last-of-type:before {
+				.cols ( @colspan: 5; @padding: 0 (16 * @toRems) (12 * @toRems); @gutter: 0; @edge: true; );
+			}
+		}
+	}
+}
+@media (max-width: @screen-sm) {
+	.layout-col-content {
+		background-color: @white;
+
+		.content-col {
+			&:first-of-type,
+			&:last-of-type {
+				width:100%;
+				max-width: 100%;
+				float: none;
+
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+}

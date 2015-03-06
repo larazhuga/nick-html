@@ -1,0 +1,244 @@
+// ========================================== //
+// Header
+// ========================================== //
+
+.header-navbar,
+.header-toolbar {
+	display: block;
+	position: relative;	
+	&:extend(.clearfix all);
+}
+
+.header-navbar {
+	min-height: 80 * @toRems;
+	padding: (20 * @toRems) (24 * @toRems);
+}
+
+.header-toolbar {
+	background-color: @body-bg-color;
+	padding: (9 * @toRems) (24 * @toRems);
+}
+
+.header-toolbar-nav {
+	.btn {
+		float: left;
+		position: relative;
+		min-width: (100 * @toRems);
+
+		& + .btn {
+			margin-left: (10 * @toRems);
+		}
+
+		&:only-child {
+			margin-left: 0;
+		}
+	}
+}
+
+
+// header toolbar tips
+// ---------------------------
+
+.header-toolbar-tips {
+	padding: 0 (32 * @toRems) 0 0;
+	position: relative;
+
+	@media (max-width: @screen-sm) {
+		display: none;
+		visibility: hidden;
+	}
+}
+.header-toolbar-tip-controls {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin-top: -(7 * @toRems);
+
+	> a {
+		text-align: center;
+		display: inline-block;
+		float: left;
+		position: relative;
+
+		& + a {
+			margin-left: (2 * @toRems);
+		}
+
+		&:only-child {
+			margin-left: 0;
+		}
+
+		.icon {
+			.font(14, 14, 0);
+			color: @gray-medium;
+			width: (12 * @toRems);
+		}
+
+		&:hover,
+		&:focus {
+			.icon {
+				color: @gray-dark;
+			}
+		}
+	}
+}
+.header-toolbar-tip-item {
+	.font(13, 38, 0);
+	color: @accent-blue;
+	white-space: nowrap;
+	padding: 0;
+	margin:  0;
+	display: block;
+	position: relative;
+}
+
+
+// header columns
+// ----------------------------
+
+.header-navbar-col {
+	height: 40 * @toRems;
+	padding: 0;
+	margin:  0;
+	.inline-block();
+	vertical-align: middle;
+	position: relative;
+}
+
+
+// Header user actions
+// ------------------------------
+
+.navbar-user-actions,
+.navbar-user-box {
+	.inline-block();
+	float: left;
+	position: relative;
+}
+
+[class*='navbar-user'] {
+	& + [class*='navbar-user']:not(:only-child) {
+		margin-left: 10 * @toRems;
+	}
+}
+
+
+.navbar-user-actions {
+	//&:extend(.clearfix all);
+
+	> a {
+		width:  40 * @toRems;
+		height: 40 * @toRems;
+		float: left;		
+
+		.icon {
+			.font(20, 40, 0);
+			color: 	@gray;
+			width:  	40 * @toRems;
+			height: 	40 * @toRems;
+			top: 		0;
+		}
+
+		&,
+		&:hover,
+		&:focus {
+			background: transparent;
+		}
+
+		&:active {
+			.icon {
+				color: darken(@gray, 10%);
+			}
+		}
+	}
+
+	> .active {
+		.icon {
+			color: @color-icons-default;
+		}
+
+		&:active {
+			.icon {
+				color: darken(@color-icons-default, 50%);
+			}
+		}	
+	}
+} //.navbar-user-actions
+
+
+.navbar-user-box {
+	.caret {
+		margin-top: 18 * @toRems;
+		margin-left: 6 * @toRems;
+		border-top-color: @gray;
+	}
+
+	&.open {
+		.caret {
+			margin-top: 14 * @toRems;
+			border-bottom:   		@caret-width-base dashed;
+			border-right: 			@caret-width-base solid transparent;
+			border-left:  			@caret-width-base solid transparent;
+			border-top:  			@caret-width-base solid transparent;
+			border-bottom-color: darken(@gray, 50%);
+		}
+	}
+
+	.dropdown-menu-right {
+		@media (min-width: @screen-sm) {
+			margin-right: 14 * @toRems;
+		}
+	}
+}
+
+.navbar-user-box-avatar {
+	background: @white;
+	border: 1px solid @border-color;
+	border-radius: @border-radius-small;
+	display: inline-block;
+	float: left;
+	width:  40 * @toRems;
+	height: 40 * @toRems;
+	margin: 0;
+	overflow: hidden;
+	padding: 1 * @toRems;
+	position: relative;
+
+	> img {
+		width:  36 * @toRems;
+		height: 36 * @toRems;
+		display: block;
+		background-color: @accent-blue;
+	}
+}
+
+// Logo Styles
+// ----------------------------------------------
+
+.logo {
+	background-image: url('../images/misc/bored-logo.png');
+	background-image: linear-gradient(transparent, transparent), url('../images/misc/bored-logo.svg');
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	width: 148 * @toRems;
+	height: 36 * @toRems;
+	margin: (2 * @toRems) 0;
+	display: inline-block;
+	position: relative;
+	float: left;
+
+	&.logo-beta {
+		background-image: url('../images/misc/bored-logo-beta.png');
+		background-image: linear-gradient(transparent, transparent), url('../images/misc/bored-logo-beta.svg');
+		width: 176 * @toRems;
+		height: 36 * @toRems;
+	}
+
+	&.logo-xmas {
+		background-image: url('../images/misc/bored-logo-beta-holiday.png');
+		background-image: linear-gradient(transparent, transparent), url('../images/misc/bored-logo-beta-holiday.svg');
+		margin: 0;
+		width: 186 * @toRems;
+		height: 60 * @toRems;
+	}
+}

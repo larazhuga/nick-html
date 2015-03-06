@@ -1,0 +1,142 @@
+/* Fonts and Typography --------------------------- */
+/* ------------------------------------------------ */
+// This file will unify all typography elements.
+
+// Font-face decalration
+// ----------------------------
+
+.font-face("coresanslight", @include-svg: true, @font-path); 	//Coresans Light
+.font-face("coresansregular", @include-svg: true, @font-path); 	//Coresans Regular
+.font-face("coresansbold", @include-svg: true, @font-path); 	//Coresans Bold
+.font-face("OpenSansLt", @include-svg: true, @font-path); 		//OpenSans Bold
+.font-face("OpenSansRe", @include-svg: true, @font-path); 		//OpenSans Bold
+.font-face("OpenSansBd", @include-svg: true, @font-path); 		//OpenSans Bold
+
+// Core
+// ----------------------------
+
+html {
+	font-size: 16px;
+	font-family: @font-family-base;
+	-webkit-font-smoothing: antialiased; // Make everything look a little nicer in webkit
+}
+
+body {
+	font-size: 100%;
+	padding: 0;
+	margin:  0;
+}
+
+
+//.font(10,24,1,1.2); 
+// Mixin formula: font-size; line-height; margin multiplier; line-height reducer
+// For smaller font-sizes, we'll decrease the line-height a bit (the last figure, 1.2)
+
+// Headings
+// --------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: @font-family-headings;
+	font-weight: normal;
+	color: @headings-color;
+
+	small,
+	.small {
+		font-family: @font-family-headings-small;
+		font-weight: normal;
+		color: @headings-small-color;
+	}
+}
+h1, .h1 { .font(32,48); } //36
+h2, .h2 { .font(28,24); } //24
+h3, .h3 { .font(18,24); } //18
+h4, .h4 { .font(16,24); } //16
+h5, .h5 { .font(14,24); } //14
+h6, .h6 { .font(13,24); } //13
+
+
+// Lead
+// ---------------------------
+
+.lead {
+	.font(60,72);
+}
+
+// Global
+// ---------------------------
+
+a {
+	color: @color-link;
+	font-family: @font-family-core-sans-bd;
+	font-weight: normal;
+	font-style:  normal;
+	text-decoration:none;
+	
+	&:hover,
+	&:focus,
+	&:active {
+		color: @gray-darker; 
+		text-decoration: underline;
+	}
+}
+
+ul,
+ol { 
+	margin: 1.5rem 0 0;
+
+	ul,
+	ol { 
+		margin-top: 0;
+	}
+}
+
+p,
+li,
+dt,
+dd {
+	.font(16,24);
+}
+
+dt { 
+	font-weight:bold; 
+}
+dd { 
+	margin-top:  0;
+	margin-left: 0;
+}
+
+li { margin:0 }
+
+blockquote { 
+	font-style:italic; 
+	margin: 0 1.5rem; 
+}
+code { 
+	font-size:16px;
+}
+
+// Page header
+// -------------------------
+
+.page-header {
+  //padding-bottom: ((@line-height-computed / 2) - 1);
+  //margin: (@line-height-computed * 2) 0 @line-height-computed;
+  //border-bottom: 1px solid @page-header-border-color;
+}
+
+// Utilities
+// ---------------------------
+
+// Alignment
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+.text-justify        { text-align: justify; }
+.text-nowrap         { white-space: nowrap; }
+
+// Transformation
+.text-lowercase      { text-transform: lowercase; }
+.text-uppercase      { text-transform: uppercase; }
+.text-capitalize     { text-transform: capitalize; }
+

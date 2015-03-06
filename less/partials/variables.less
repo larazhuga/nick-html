@@ -1,0 +1,520 @@
+// Global Variables
+// This file creates the global variables across the entire site.
+
+// Table of content:
+// 1. Colors
+// 2. Path
+// 3. Typography
+// 4. Grid
+// 5. Shared Page Components
+// 6. Forms
+// 7. Dropdowns
+// 8. Media Queries
+// 9. Miscellaneous
+//10.
+//11.
+
+
+
+// ========================================= //
+// 1.
+// Colors
+// ========================================= //
+
+// Base colors
+// -------------------------------------------
+
+@white: 				 #ffffff;
+@black: 				 #000000;
+@gray-darker:            #323940;
+@gray-dark:              #4A4A4A;
+@gray-medium:            #9B9B9B;
+@gray:                   #d3d3d3;
+@gray-light: 			 #ededed;
+@gray-lighter: 			 #eeeeee;
+
+@body-text-color: 		 @gray-dark;
+@body-bg-color: 		 darken(@white, 2%); //#fafafa
+@header-bg-color: 		 @white;
+@footer-bg-color: 		 @body-bg-color;
+@content-bg-color: 		 @white;
+
+@headings-color:         @gray-dark;
+@headings-small-color:   @gray-medium; 		// this is color for annotated text
+
+@border-color-dark: 	 #ddd;
+@border-color-light: 	 #eee;
+@border-color: 			 #ededed;
+
+@color-text:        	 @body-text-color; 	//default text color
+@color-icons-default:    #8E99A4;
+@color-link:       	 	 #0080D6; 			//default link color
+@color-link-hover:       darken(@color-link, 15%);
+@color-link-decoration:  underline;
+@color-figures:     	 #4CCAE1; 			// base color for menu items, insets, diagrams: blue
+@color-supplement:  	 #A8C461; 			// base color for supplemental items, icons, footer: green
+@color-highlight:   	 #FDD45E; 			// base color for stars, highlights: yellow
+@color-error-bg:    	 #FFDEDD;			// background color for error alerts
+
+// Navigator styles (upload)
+
+@navigator-color: 			@body-bg-color;
+@navigator-border-color: 	@navigator-color;
+@navigator-bg-color: 		@gray;
+@navigator-hover-bg-color: 	@body-text-color;
+@navigator-active-color: 	@component-active-color;
+@navigator-active-bg-color: @component-active-bg;
+
+
+// Footer Social Colors
+// -------------------------------------------
+
+@footer-icon-color:		   #471406;	   //Twitter, About us
+@footer-icon-color-active: #e26c4c;   // active icon footer color
+
+
+// Accents
+// -------------------------------------------
+
+@accent-yellow: 		 #F7C839;
+@accent-orange: 		 #F56E3D;
+@accent-red: 			 #D12E41;
+@accent-green: 			 #02D072;
+@accent-turqouise: 		 #29AEB3;
+@accent-blue: 			 #0080D6;
+@accent-blue-light: 	 #00CCFF;
+@accent-purple: 		 #9013FE;
+@accent-gray-tint:       #E6EAEB;
+
+
+// Component active color
+// -------------------------------------------
+
+@component-active-color: @white; 		// Global color for active items (e.g., navs or dropdowns).
+@component-active-bg:    @accent-blue;	// Global background color for active items (e.g., navs or dropdowns).
+
+
+
+// ========================================= //
+// 2.
+// Path
+// ========================================= //
+
+@font-path:         ~"../fonts/";
+@icon-path: 		@font-path;
+
+
+
+// ========================================= //
+// 3.
+// Typography
+// ========================================= //
+
+// Icons:
+// ------------------------
+
+@icons-font-family:  					"bored";
+
+// Font-face
+// ------------------------
+
+@font-family-sans-default:  			sans-serif;
+@font-family-sans-serif:  				"Helvetica", Arial, sans-serif;
+@font-family-serif:       				"Georgia", Times New Roman, Times, serif;
+@font-family-core-sans-lt:    			"coresanslight", Helvetica, Arial, sans-serif;
+@font-family-core-sans-re:    			"coresansregular", Helvetica, Arial, sans-serif;
+@font-family-core-sans-bd:    			"coresansbold", Helvetica, Arial, sans-serif;
+@font-family-open-sans-lt:    			"OpenSansLt", Helvetica, Arial, sans-serif;
+@font-family-open-sans-re:    			"OpenSansRe", Helvetica, Arial, sans-serif;
+@font-family-open-sans-bd:    			"OpenSansBd", Helvetica, Arial, sans-serif;
+
+@font-family-base: 						@font-family-core-sans-re;
+@font-family-headings: 					@font-family-open-sans-lt;
+@font-family-headings-small: 			@font-family-open-sans-re;
+
+@font-family-widget-headings: 			@font-family-core-sans-lt;
+@font-family-widget-headings-small: 	@font-family-core-sans-re;
+
+@font-size-base:          				(14 * @toRems);
+@font-size-large:         				(18 * @toRems);
+@font-size-small:         				(12 * @toRems);
+
+@font-size-h1:            				floor((@font-size-base * 2.2857)) * @toEms; 	// ~36px
+@font-size-h2:            				floor((@font-size-base * 2)) * @toEms; 			// ~28px
+@font-size-h3:            				ceil((@font-size-base * 1.7)) * @toEms; 		// ~24px
+@font-size-h4:            				ceil((@font-size-base * 1.25)) * @toEms; 		// ~18px
+@font-size-h5:            				@font-size-base;								// ~14px
+@font-size-h6:            				ceil((@font-size-base * 0.9285)) * @toEms; 		// ~13px
+
+
+// Set your required base font-size and line-height here.
+// I'm using a line-height which is 1.5 times larger than the font-size, so in my case 16px font-size = 24px line-height
+
+@defaultfontsize: 						16;
+@defaultlineheight: 					@defaultfontsize * 1.5;
+
+// Default line-heights for positioning
+
+@line-height-xs: 						1.25;
+@line-height-small:         			@line-height-base;
+@line-height-base: 						1.5;
+@line-height-large:         			1.3333333; // extra decimals for Win 8.1 Chrome
+//@line-height-computed:    				floor((@font-size-base * @line-height-base));
+@line-height-computed:    				(20 * @toRems);
+
+// Define common padding and border radius sizes and more. 
+// Values based on 14px text and 1.428 line-height (~20px to start).
+
+
+@padding-base-vertical:     (8 * @toRems);
+@padding-base-horizontal:   (12 * @toRems);
+
+@padding-large-vertical:    (12 * @toRems);
+@padding-large-horizontal:  (16 * @toRems);
+
+@padding-small-vertical:    (4 * @toRems);
+@padding-small-horizontal:  (8 * @toRems);
+
+@padding-xs-vertical:       (1 * @toRems);
+@padding-xs-horizontal:     (5 * @toRems);
+
+
+// ========================================= //
+// 4.
+// Grid
+// ========================================= //
+
+@base_px: 								16; 						//set to the most common base px size used in browsers, should generally be left at default
+@toRems: 								(1 / @base_px) + 0rem; 		//allows you to set values as the default px size to target, which is then converted into scalable rem values.
+@toEms:  								(1 / @base_px) + 0em; 		//same as above, but with em values
+@default-width: 						1200 * @toRems;
+@default-padding: 						0;
+@default-row_margin: 					0 auto;
+@default-colspan: 						1;
+@default-total_cols:    				12;
+@default-gutter:        				0;
+@default-margin_top:    				0;
+@default-margin_bottom: 				0;
+
+
+
+// ============================================ //
+// 5.
+// Shared Page Components
+// ============================================ //
+
+
+// Border Radius
+// ----------------------------------
+
+@border-radius-small:       2px;
+@border-radius-base:        4px;
+@border-radius-large:       6px;
+
+// Boxes
+// ----------------------------------
+
+// Add --
+
+
+// ========================================= //
+// 6.
+// Buttons
+// ========================================= //
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+@btn-font-weight:                normal;
+
+@btn-default-color:              @gray-dark;
+@btn-default-bg:                 #f0f0f0;
+@btn-default-border:             lighten(@border-color-dark, 2%);
+
+@btn-more-color:              	 @gray-dark;
+@btn-more-bg:                 	 @white;
+@btn-more-border:             	 @border-color;
+
+@btn-primary-color:              @white;
+@btn-primary-bg:                 @accent-blue;
+@btn-primary-border:             darken(@btn-primary-bg, 2%);
+
+@btn-success-color:              @white;
+@btn-success-bg:                 @accent-green;
+@btn-success-border:             darken(@btn-success-bg, 2%);
+
+@btn-info-color:                 @white;
+@btn-info-bg:                    @accent-blue-light;
+@btn-info-border:                darken(@btn-info-bg, 2%);
+
+@btn-warning-color:              @white;
+@btn-warning-bg:                 @accent-yellow;
+@btn-warning-border:             darken(@btn-warning-bg, 2%);
+
+@btn-danger-color:               @white;
+@btn-danger-bg:                  @accent-red;
+@btn-danger-border:              darken(@btn-danger-bg, 2%);
+
+@btn-link-disabled-color:        @gray-light;
+
+
+// ========================================= //
+// 6.
+// Forms
+// ========================================= //
+
+@input-bg:                       @white;																				 // `<input>` background color
+@input-bg-disabled:              @gray-lighter;																		 // `<input disabled>` background color
+@input-color:                    @gray-darker;																				 // Text color for `<input>`s
+@input-border:                   #d0d0d0;																				 // `<input>` border color
+@input-border-radius:            @border-radius-small; 																 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
+@input-border-radius-large:      @border-radius-large;																 // Large `.form-control` border radius
+@input-border-radius-small:      @input-border-radius;																 // Small `.form-control` border radius
+@input-border-focus:             @gray;																			 // Border color for inputs on focus
+@input-shadow-focus:             @gray-lighter;																			 // Border color for inputs on focus
+@input-color-placeholder:        @gray-darker;																				 // Placeholder text color
+@form-group-margin-bottom:       (12 * @toRems);																				 // `.form-group` margin	
+@legend-color:                   @gray-dark;
+@legend-border-color:            @border-color;
+@input-group-addon-bg:           @input-border;																		 // Background color for textual input addons
+@input-group-addon-border-color: @input-border;																	 // Border color for textual input addons
+@input-height-base:              (@line-height-computed + (@padding-base-vertical * 2) + 0.125);						 // Default `.form-control` height
+@input-height-large:             (ceil(@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + 0.125);	 // Large `.form-control` height
+@input-height-small:             (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 0.125); // Small `.form-control` height
+
+
+// ========================================= //
+// 7.
+// States
+// ========================================= //
+
+@state-success-text:             darken(@accent-green, 7%);
+@state-success-bg:               #CCF8E3;
+@state-success-border:           darken(spin(@state-success-bg, -5%), 7%);;
+
+@state-info-text:                @accent-blue;
+@state-info-bg:                  #E6F6FA;
+@state-info-border:              darken(spin(@state-info-bg, -5%), 5%);;
+
+@state-warning-text:             darken(spin(@accent-yellow, -7%), 12%);
+@state-warning-bg:               #FCF1CF;
+@state-warning-border:           darken(spin(@state-warning-bg, -5%), 5%);
+
+@state-danger-text:              @accent-red;
+@state-danger-bg:                #FAE6E6;
+@state-danger-border:            darken(spin(@state-danger-bg, -5%), 5%);
+
+// Alerts
+// ------------------------------------------------
+// Define alert colors, border radius, and padding.
+
+@alert-padding:               @padding-base-horizontal;
+@alert-border-radius:         @border-radius-small;
+@alert-link-font-weight:      normal;
+
+@alert-success-bg:            @state-success-bg;
+@alert-success-text:          @state-success-text;
+@alert-success-border:        @state-success-border;
+
+@alert-info-bg:               @state-info-bg;
+@alert-info-text:             @state-info-text;
+@alert-info-border:           @state-info-border;
+
+@alert-warning-bg:            @state-warning-bg;
+@alert-warning-text:          @state-warning-text;
+@alert-warning-border:        @state-warning-border;
+
+@alert-danger-bg:             @state-danger-bg;
+@alert-danger-text:           @state-danger-text;
+@alert-danger-border:         @state-danger-border;
+
+
+// ========================================= //
+// 7.
+// Dropdowns
+// ========================================= //
+
+@dropdown-bg:                    @white; 					// Background for the dropdown menu.
+@dropdown-border:                rgba(0,0,0,.15); 			// Dropdown menu `border-color`.
+@dropdown-fallback-border:       @gray-light;				// Dropdown menu `border-color` **for IE8**.
+@dropdown-divider-bg:            @gray-light;				// Divider color for between dropdown items.
+@dropdown-link-color:            @gray-dark;				// Dropdown link text color.
+@dropdown-link-hover-color:      @white;					// Hover color for dropdown links.
+@dropdown-link-hover-bg:         @accent-blue;				// Hover background for dropdown links.
+@dropdown-link-active-color:     @white;					// Active dropdown menu item text color.
+@dropdown-link-active-bg:        @accent-blue-light;		// Active dropdown menu item background color.
+@dropdown-link-disabled-color:   @gray-light;				// Disabled dropdown menu item background color.
+@dropdown-header-color:          @white;					// Text color for headers within dropdown menus.
+@dropdown-header-bg:          	 #ddd;						// background-color color for headers within dropdown menus.
+@dropdown-caret-color:           @gray-dark;				// Caret color
+
+// Dropdown caret
+// those little arrows
+
+@caret-width-base:          	 4px;						// Width of the `border` for generating carets that indicator dropdowns.
+@caret-width-large:         	 5px;						// Carets increase slightly in size for larger components.
+
+
+// ========================================= //
+// 7.
+// Topics
+// ========================================= //
+
+@topic-bg-color: 				#F2F7FA;
+
+// ========================================= //
+// 8.
+// Media Queries
+// ========================================= //
+
+
+// iOS Media Queries
+// ----------------------------
+// usage example:
+// @media @ipad {}
+//
+// use prefix mq
+// ----------------------------
+
+// All iPads in portrait & landscape
+@mq-ipad:                   ~"only screen and (min-device-width : 768px) and (max-device-width : 1024px)";
+
+// All iPads in landscape
+@mq-ipad-landscape:         ~"only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)";
+
+// All iPads in portrait
+@mq-ipad-portrait:          ~"only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)";
+
+
+// ipad Mini, iPad 1 & 2 in portrait & landscape
+@mq-ipad-early:             ~"only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 1)";
+
+// ipad Mini, iPad 1 & 2 in landscape*/
+@mq-ipad-early-landscape:   ~"only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1)";
+
+// ipad Mini, iPad 1 & 2 in portrait
+@mq-ipad-early-portrait:    ~"only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1)";
+
+// Retina iPad (includes Mini Retina) in portrait & landscape
+@mq-ipad-retina:            ~"only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2)";
+
+// Retina iPad in landscape
+@mq-ipad-retina-landscape:  ~"only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2)";
+
+// Retina iPad in portrait
+@mq-ipad-retina-portrait:   ~"only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2)";
+
+
+// iPhone 2G, 3G, 4, 4S Media Queries
+@mq-iphone-early:           ~"only screen and (min-device-width : 320px) and (max-device-width : 480px)";
+
+// iPhone 2G-4S in landscape
+@mq-iphone-early-landscape: ~"only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape)";
+
+// iPhone 2G-4S in portrait
+@mq-iphone-early-portrait:  ~"only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait)";
+
+
+// iPhone 5 (includes 5C) in portrait & landscape
+@mq-iphone-5:               ~"only screen and (min-device-width : 320px) and (max-device-width : 568px)";
+
+// iPhone 5 in landscape
+@mq-iphone-5-landscape:     ~"only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape)";
+
+// iPhone 5 in portrait
+@mq-iphone-5-portrait:      ~"only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait)";
+
+
+// Media queries breakpoints
+// -------------------------
+// Define the breakpoints at which your layout will change, 
+// adapting to different screen sizes.
+// -------------------------
+
+// Very small screen / phone
+
+@screen-xxs:                  20em;
+@screen-xxs-min:              @screen-xxs;
+@screen-xphone:               @screen-xxs-min;
+
+// Extra small screen / phone
+
+@screen-xs:                  30em;
+@screen-xs-min:              @screen-xs;
+@screen-phone:               @screen-xs-min;
+
+// Small screen / tablet
+
+@screen-sm:                  48em;
+@screen-sm-min:              @screen-sm;
+@screen-tablet:              @screen-sm-min;
+
+// Medium screen / desktop
+
+@screen-md:                  62em;
+@screen-md-min:              @screen-md;
+@screen-desktop:             @screen-md-min;
+
+// Large screen / wide desktop
+
+@screen-lg:                  75em;
+@screen-lg-min:              @screen-lg;
+@screen-lg-desktop:          @screen-lg-min;
+
+// Large screen / wide desktop
+
+@screen-xlg:                  90em;
+@screen-xlg-min:              @screen-xlg;
+@screen-xlg-desktop:          @screen-xlg-min;
+
+// So media queries don't overlap when required, provide a maximum
+
+@screen-xxs-max:             (@screen-xs-min - .0625);
+@screen-xs-max:              (@screen-sm-min - .0625);
+@screen-sm-max:              (@screen-md-min - .0625);
+@screen-md-max:              (@screen-lg-min - .0625);
+@screen-lg-max:              (@screen-xlg-min - .0625);
+
+
+// Container sizes
+// --------------------------------------------------
+
+// Small screen / tablet
+
+@container-tablet:              48rem;
+@container-sm:                  @container-tablet;
+
+// Medium screen / desktop
+
+@container-desktop:             60rem;
+@container-md:                  @container-desktop;
+
+// Large screen / wide desktop
+
+@container-large-desktop:       72rem;
+@container-lg:                  @container-large-desktop;
+
+// Large screen / wide desktop
+
+@container-xlarge-desktop:      81rem;
+@container-xl:                  @container-xlarge-desktop;
+
+
+
+// ========================================= //
+// 9.
+// Miscellaneous
+// ========================================= //
+
+// Hr border color
+
+@hr-border:                   @gray-medium;
+
+// Disabled cursor for form controls and buttons.
+
+@cursor-disabled:             not-allowed;
+
+
+// Close
+// ---------------------------------------
+
+@close-font-weight:           bold;
+@close-color:                 @black;

@@ -1,0 +1,113 @@
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.alert {
+  .font(14, 19, 0);
+  padding: (@padding-small-vertical * 2) @padding-base-horizontal;
+  margin-bottom: @padding-large-vertical;
+  border: 1px solid transparent;
+  border-bottom-width: 2px;
+  border-radius: @alert-border-radius;
+  min-height: (38 * @toRems);
+
+  // Headings for larger alerts
+  .alert-title {
+    margin-top: 0;
+    color: inherit;
+  }
+
+  // Provide class for links that match alerts
+  .alert-link {
+    font-weight: @alert-link-font-weight;
+  }
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+
+  > p + p {
+    margin-top: 5px;
+  }
+
+  strong {
+    font-family: @font-family-core-sans-bd;
+    font-weight: @alert-link-font-weight;
+  }
+}
+
+//
+// Close icons
+// --------------------------------------------------
+
+
+.close {
+  float: right;
+  font-size: (@font-size-base * 2);
+  font-weight: @close-font-weight;
+  line-height: 1;
+  color: @close-color;
+  .opacity(.35);
+
+  &:hover,
+  &:focus {
+    color: @close-color;
+    text-decoration: none;
+    cursor: pointer;
+    .opacity(.6);
+  }
+
+  // Additional properties for button version
+  // iOS requires the button element instead of an anchor tag.
+  // If you want the anchor version, it requires `href="#"`.
+  // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+  button& {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+  }
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissible {
+  padding-right: (@alert-padding + 1.25);
+
+  // Adjust close link position
+  .close {
+    position: relative;
+    top:   -(4 * @toRems);
+    right: -(21 * @toRems);
+    color: inherit;
+  }
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.alert-success {
+  .alert-variant(@alert-success-bg; @alert-success-border; @alert-success-text);
+}
+
+.alert-info {
+  .alert-variant(@alert-info-bg; @alert-info-border; @alert-info-text);
+}
+
+.alert-warning {
+  .alert-variant(@alert-warning-bg; @alert-warning-border; @alert-warning-text);
+}
+
+.alert-danger {
+  .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
+}

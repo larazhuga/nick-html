@@ -1,0 +1,103 @@
+/* Product Page --------------------------- */
+// This section will unify all product elements.
+/* ------------------------------------------ */
+
+.previously-viewed {
+
+  .flex-display(flex);
+  .align-items(flex-end);
+
+  clear: both;
+  padding-top: 5rem;
+
+  div {
+
+    .flex(1);
+
+    text-align: center;
+
+    img {
+
+      display: block;
+      margin: 0 auto;
+
+    } // img
+
+  } // div
+
+} // previously-viewed
+
+.boat-package {
+
+  clear: both;
+
+  .package-components-table {
+
+    float: left;
+    margin-right: 2.5%;
+    max-width: 35rem;
+    width: 47.5%; // why this dimension?
+
+    tbody {
+
+      tr {
+        &:nth-child(odd) {
+
+          background: #eee; // define a variable for this color
+
+        }
+      } // tr
+
+      td {
+        &:last-child {
+
+          text-align: right;
+        }
+
+      } // td
+
+    } // tbody
+
+  } // package-components-table
+
+  img {
+    width: 50%;
+  }
+
+} // .boat-package
+
+.key-features {
+
+  line-height: 1.5;
+  width: 100%;
+
+} // key-features
+
+
+/* ------------------------------------------ */
+/* Responsive         ----------------------- */
+/* ------------------------------------------ */
+
+@media only screen and (min-width:@container-sm) {
+  .key-features {
+
+    .flex-display(flex);
+    .flex-wrap(wrap);
+
+    .key-feature {
+
+      .flex(1 1 10rem);
+
+      padding-right: 2.8rem;
+
+      &:last-child {
+
+        padding-right: 0;
+
+      }
+
+    } // .key-feature
+
+  } // .key-features
+
+} // responsive side

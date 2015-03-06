@@ -1,0 +1,667 @@
+// ------------------------------------------ //
+// Upload
+// ------------------------------------------ //
+
+
+// Upload widgets base
+// -----------------------
+
+.upload-widget,
+.upload-widget-aside,
+.upload-modules {
+	padding: 0;
+	margin:  0;
+	display: block;
+}
+
+.upload-widget,
+.upload-widget-aside {
+	background-color: @white;
+	&.is-dark {
+		background-color: @gray-lighter;
+		.border-radius(0 0 @border-radius-base @border-radius-base);
+		.box-shadow(0 1px 0 0 rgba(0,0,0, .07));
+		.upload-widget-body {
+			border: solid 1px @border-color-dark;
+			.border-radius(0 0 @border-radius-base @border-radius-base);
+		}
+	}
+}
+
+.upload-widget-header {
+	margin: 0;
+	border-bottom: solid 1px @border-color-dark;
+	display: block;
+}
+
+.upload-widget-title {
+	.font(18, 20, 0);
+	color: @black;
+	padding: 0;
+	margin:  0;
+}
+
+
+
+// Widget Navs and Tabs
+// -----------------------
+
+.upload-widget-tabs {
+	background-color: @white;
+	padding:  0;
+	margin:   0;
+	display:  block;
+	position: relative;
+	&:extend(.clearfix all);
+
+	> li {
+		display: inline-block;
+		float: left;
+		position: relative;
+		padding: 0;
+		margin:  0 0 -1px 0;
+
+		& + li {
+			margin-left: (2 * @toRems);
+		}
+
+		> a {
+			.font(18, 20, 0);
+			color: @gray-dark;
+			text-align: center;
+			text-decoration: none;
+			background-color: @white;
+			display:  block;
+			position: relative;
+			border: solid 1px transparent;
+			border-bottom-color: @border-color-dark;
+			.border-radius(@border-radius-base @border-radius-base 0 0);
+			
+			// Tab spacing
+
+				padding: (12 * @toRems) (20 * @toRems);
+
+			@media (min-width: @screen-sm) and (max-width: @screen-md-max) {
+				padding-left:  (24 * @toRems);
+				padding-right: (24 * @toRems);
+			}
+			@media (min-width: @screen-lg) {
+				padding-left:  (32 * @toRems);
+				padding-right: (32 * @toRems);
+			}
+		}
+
+		> a {
+			&:hover,
+			&:focus {
+				color: @gray-darker;
+				background-color: @body-bg-color;
+				text-shadow: 0 1px 0 rgba(255,255,255, .5);
+				border-top-color:   @gray-light;
+				border-left-color:  @gray-light;
+				border-right-color: @gray-light;
+			}
+		}
+		
+		// Active tab
+
+		&.active {
+			> a {
+				color: @accent-blue;
+				background-color: @gray-light;
+				border-color: @border-color-dark;	
+				border-bottom-color: @gray-light;
+				text-shadow: 0 1px 0 rgba(255,255,255, .5);
+				cursor:   default;
+			}
+		}
+	}
+}
+
+
+// Upload options nav below the add block form
+// -------------------------------------------------
+
+.upload-content-nav {
+	background-color: @body-bg-color;
+	border: solid 1px @border-color;
+	.border-radius(@border-radius-base);
+	.box-shadow(0 1px 0 0 rgba(0,0,0, .07));
+	display: block;
+}
+
+.upload-nav {
+	display: block;
+	padding-top:    (8 * @toRems);
+	padding-bottom: (8 * @toRems);
+	margin-left:   -(12 * @toRems);
+	margin-right:  -(12 * @toRems);
+	&:extend(.clearfix all);
+
+	@media (min-width: @screen-sm) and (max-width: @screen-md-max) {
+		margin-left:  -(16 * @toRems);
+		margin-right: -(16 * @toRems);
+	}
+	@media (min-width: @screen-lg) {
+		margin-left:  -(32 * @toRems);
+		margin-right: -(32 * @toRems);
+	}
+	@media (max-width: @screen-sm-max) {
+		min-width: 100%;
+	}
+
+	> a {
+		.font(14, 16, 0);
+		font-family: @font-family-core-sans-re;
+		text-decoration: none;
+		display: inline-block;
+		float: left;
+		position: relative;
+		padding: (8 * @toRems);
+
+		@media (min-width: @screen-sm) and (max-width: @screen-md-max) {
+			padding-left:  (30 * @toRems);
+			padding-right: (30 * @toRems);
+		}
+		@media (min-width: @screen-lg) {
+			padding-left:  (32 * @toRems);
+			padding-right: (32 * @toRems);
+		}
+		@media (max-width: @screen-sm-max) {
+			text-align: center;
+			display: table-cell;
+			width: 1%;
+			float: none;
+		}
+	}
+
+	> a + a {
+		border-left: solid 1px @border-color;
+
+		&:first-child,
+		&:only-child {
+			border: none;
+		}
+	}
+}
+
+
+// Upload Modules
+// -------------------------
+
+.upload-module-item {
+	padding: 0 (32 * @toRems) (16 * @toRems);
+	display: block;
+	overflow: auto;
+	border: dashed 2px transparent;
+	.border-radius(@border-radius-large);
+	position: relative;
+
+	@media (max-width: @screen-xs-max) {
+		border-width: 2px;
+	}
+
+	.upload-module-toolbox {
+		display: none;
+		visibility: hidden;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: @body-bg-color;
+		border-color: @border-color-dark;
+		cursor: move;
+		.transition(~"border-color ease-in-out .15s, background-color ease-in-out .15s");
+
+		.upload-module-toolbox {
+			display: inline-block;
+			visibility: visible;
+		}
+	}
+}
+
+.upload-module-title {
+	.font(28, 34);
+	color: @gray-darker;
+	font-family: @font-family-open-sans-bd;
+	display: block;
+}
+
+.upload-module-content {
+	padding-top: (20 * @toRems);
+	p {
+		.font(16, 24, 0);
+
+		& + p {
+			margin-top: (16 * @toRems);
+		}
+	}
+
+	img {
+		margin-left:  auto;
+		margin-right: auto;
+	}
+}
+
+
+
+// Toolbox
+// -----------------
+
+.upload-module-toolbox {
+	max-width: 100%;
+	background-color: @gray-darker;
+	display: inline-block;
+	vertical-align: middle;
+	position: absolute;
+	top:   (10 * @toRems);
+	right: (10 * @toRems);
+	left:  auto;
+	padding: 0;
+	margin:  0;
+	.border-radius(@border-radius-base);
+	overflow: hidden;
+	.zindex('upload-module-toolbox');
+	
+	> a {
+		line-height: (35 * @toRems);
+		height: (36 * @toRems);
+		white-space: nowrap;
+		
+		// Normal links get side spacing (unlike .icon which has fixed sizes)
+		span:not(.icon) {
+			min-width: 	   (80 * @toRems); //we set a minwidth value for a better simetry
+			padding-left:  (12 * @toRems);
+			padding-right: (12 * @toRems);
+			display: inline-block;
+		}
+	}
+	> a .icon {
+		width:  (36 * @toRems);
+		height: (36 * @toRems);
+	}
+
+	> a {
+		.font(12, 36, 0);
+		color: @white;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+		display:  inline-block;
+		float:    left;
+		position: relative;
+		cursor:   pointer;
+		overflow: hidden;
+
+		.icon {
+			color: @gray-lighter;
+			.font(18, 36, 0);
+		}
+
+		&:first-child {
+			.border-radius(@border-radius-base 0 0 @border-radius-base);
+		}
+		&:last-child {
+			.border-radius(0 @border-radius-base @border-radius-base 0);
+		}
+		&:only-child {
+			.border-radius(@border-radius-base);
+		}
+
+		&:not(:first-child),
+		&:not(:first-of-type) {
+			border-left: solid 1px @gray-dark;
+		}
+
+		&:hover,
+		&:focus {
+			background-color: darken(@gray-darker, 10%);
+
+			.icon {
+				color: @white;
+			}
+		}
+
+		&:active,
+		&.active {
+			background-color: @accent-blue;
+		}
+	}
+
+	@media (max-width: @screen-xs) {
+		min-width: 100%;
+		display: block;
+		position: relative;
+		top:   auto;
+		right: 0;
+		left:  0;
+		margin-top: (14 * @toRems);
+
+		> a {
+			display: table-cell;
+			width: 1%;
+			float: none;
+			text-align: center;
+		}
+	}
+}
+
+
+// Upload widget variations
+// -------------------------------
+
+
+.upload-module-item {
+	&.has-media-uploaded {
+		padding: 0;
+		margin:  0;
+		border: none;
+		.border-radius(0);
+		position: relative;
+
+		@media (min-width: @screen-xs) and (max-width: @screen-xs-max) {
+			margin-top:    (6 * @toRems);
+			margin-bottom: (6 * @toRems);
+		}
+		@media (min-width: @screen-sm) {
+			margin-top:    (12 * @toRems);
+			margin-bottom: (12 * @toRems);
+		}
+
+		&:hover,
+		&:focus {
+			background-color: transparent;
+			cursor: default;
+		}
+
+		.upload-module-content {
+			padding-top: 0;
+			img {
+				width: 100%;
+				.img-responsive();
+			}
+		}
+
+		.upload-module-toolbox {
+			display: inline-block;
+			visibility: visible;
+			margin: 0;
+			
+			@media (min-width: @screen-xs) {
+				top:   (10 * @toRems);
+				right: auto;
+				left:  auto;
+				margin-left:   50%;
+				margin-right: -100%;
+				.translate(-50%; 0);
+			}
+			@media (max-width: @screen-xs) {
+				.border-radius(0);
+			}
+		}
+	}
+}
+
+
+
+// Widget spacing
+// -------------------
+
+// Header spacing
+.upload-widget-header {
+	padding: (12 * @toRems) 0;
+	
+	@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+		padding: (16 * @toRems) 0;
+	}
+	@media (min-width: @screen-md) and (max-width: @screen-md-max) {
+		padding: (16 * @toRems);
+	}
+	@media (min-width: @screen-lg) and (max-width: @screen-lg-max) {
+		padding: (16 * @toRems) (24 * @toRems);
+	}
+	@media (min-width: @screen-xlg) {
+		padding: (16 * @toRems) (32 * @toRems);
+	}
+}
+
+// Body spacing
+.upload-widget-body {
+	padding: (16 * @toRems) 0 (12 * @toRems);
+	
+	@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+		padding: (24 * @toRems) 0 (16 * @toRems);
+	}
+	@media (min-width: @screen-md) and (max-width: @screen-md-max) {
+		padding: (24 * @toRems) (16 * @toRems) (16 * @toRems);
+	}
+	@media (min-width: @screen-lg) and (max-width: @screen-lg-max) {
+		padding: (24 * @toRems) (24 * @toRems) (16 * @toRems);
+	}
+	@media (min-width: @screen-xlg) {
+		padding: (24 * @toRems) (32 * @toRems) (16 * @toRems);
+	}
+}
+
+// Footer spacing
+.upload-widget-footer {
+	padding: (12 * @toRems) 0 0;
+
+	@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+		padding: (16 * @toRems) 0 0;
+	}
+	@media (min-width: @screen-md) and (max-width: @screen-md-max) {
+		padding: (16 * @toRems) (16 * @toRems) 0;
+	}
+	@media (min-width: @screen-lg) and (max-width: @screen-lg-max) {
+		padding: (16 * @toRems) (24 * @toRems) 0;
+	}
+	@media (min-width: @screen-xlg) {
+		padding: (16 * @toRems) (32 * @toRems) 0;
+	}
+}
+
+.upload-widget-aside {
+	.upload-module-item {
+		margin: 0;
+		display: block;
+		position: relative;
+		overflow: hidden;
+	}
+	.upload-widget-header {
+		padding: (12 * @toRems) 0;
+		
+		@media (min-width: @screen-sm) {
+			padding: (16 * @toRems) 0;
+		}
+	}
+	.upload-widget-body {
+		padding:  (4 * @toRems) 0 0 0;
+	}
+
+	.form-group + .form-group {
+		margin: 0;
+		border-top: solid 1px lighten(@border-color-light, 2%);
+	}	
+}
+
+.upload-module-item {
+	padding: 0 (12 * @toRems) (12 * @toRems);
+
+	@media (min-width: @screen-sm) and (max-width: @screen-md-max) {
+		padding: 0 (16 * @toRems) (16 * @toRems);
+	}
+	@media (min-width: @screen-lg) {
+		padding: 0 (32 * @toRems) (16 * @toRems);
+	}
+}
+
+.upload-widget.is-dark .upload-widget-body {
+	@media (min-width: @screen-sm) and (max-width: @screen-md-max) {
+		padding: (16 * @toRems);
+	}
+	@media (max-width: @screen-xs-max) {
+		padding: (12 * @toRems);
+	}
+}
+
+.upload-content-nav {
+		padding-left:  (12 * @toRems);
+		padding-right: (12 * @toRems);
+
+	@media (min-width: @screen-sm) and (max-width: @screen-md-max) {
+		padding-left:  (16 * @toRems);
+		padding-right: (16 * @toRems);
+	}
+	@media (min-width: @screen-lg) {
+		padding-left:  (32 * @toRems);
+		padding-right: (32 * @toRems);
+	}
+}
+
+
+// Picture gallery
+// ----------------------
+
+.upload-picture-gallery {
+	margin-bottom: (10 * @toRems);
+	display:  block;
+	position: relative;
+}
+
+.upload-picture-gallery-grid {
+	.row();
+	max-height: (272 * @toRems);
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.upload-picture-gallery-item {
+	.cols( @colspan: 1; @total_cols: 4; @gutter: 1; );
+	margin-bottom: 1%;
+	display: inline-block;
+	position: relative;
+
+	&:nth-child(4n) {
+        margin-right: 0;
+    }
+    @media (min-width: @screen-xs) and (max-width: @screen-xs-max) {
+		.cols( @colspan: 1; @total_cols: 6; @gutter: 0; );
+		
+		&:nth-child(6n) {
+			margin-right: 0;
+		}
+	}
+}
+
+
+.upload-picture-gallery-item {
+    > a {
+    	width: 100%;
+    	display: block;
+    	position: relative;
+    	border: solid 2px transparent;
+
+    	img {
+    		.opacity(.6);
+    		.img-responsive();
+    	}
+    }
+
+    > a {
+    	&:hover,
+    	&:focus {
+			border-color: @accent-blue;
+			.transition(~"border-color ease-in-out .15s");
+
+			img {
+				.opacity(1);
+				.transition(~"opacity ease-in-out .15s");
+			}
+    	}
+    }
+}
+
+.upload-picture-gallery-actions {
+	.row();
+	border-top:  1px solid @border-color;
+    margin-top:  (6 * @toRems);
+    padding-top: (10 * @toRems);
+    
+	> a {
+		.font(13, 14, 0);
+		padding: (@padding-small-vertical / 2) @padding-small-horizontal;
+		text-decoration: none;
+
+		& + a {
+			margin-left: (4 * @toRems);
+		}
+	}
+}
+
+
+// Upload drag and drop browse widget
+// --------------------------------------
+
+.upload-basket {
+	text-align: center;
+	background-color: @white;
+	//padding: 0 @line-height-computed @line-height-computed;
+	display: block;
+	position: relative;
+	border: dotted 3px @border-color-dark;
+	border: 2px dashed @border-color-dark;
+	.border-radius(@border-radius-large);
+	&:extend(.clearfix all);
+}
+
+.upload-basket-content {
+	padding: (20 * @toRems);
+	margin: 0;
+	display: block;
+	max-width: 100%;
+
+	@media (min-width: @screen-lg) {
+		padding: (30 * @toRems);
+	}
+}
+
+.upload-basket-lead {
+	.font(16, 20, 0);
+	font-family: @font-family-open-sans-bd;
+	color: @gray-darker;
+	
+	.icon {
+		color: @gray-lighter;
+		.font(60, 60, 0);
+		height: (60 * @toRems);
+		margin-bottom: (8 * @toRems);
+	}
+
+	span:not(.icon) {
+		display: block;
+	}
+}
+
+.upload-basket-lead-title {
+	.font(24, 24, 0);
+	color: inherit;
+	margin-bottom: (24 * @toRems);
+}
+
+
+// Upload Topics
+// --------------------------
+
+.upload-topics {
+	&.topics-container {
+			margin-top: (20 * @toRems);
+
+		@media (min-width: @screen-sm) and (max-width: @screen-md-max) {
+			margin-top: (30 * @toRems);
+		}
+		@media (min-width: @screen-lg) {
+			margin-top: (40 * @toRems);
+		}			
+	}
+}

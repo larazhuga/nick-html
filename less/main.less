@@ -1,0 +1,44 @@
+// Core variables and mixins
+@import "partials/variables.less";
+@import "partials/mixins.less";
+
+@import "partials/reset.less";			// Basic Reset for pages
+@import "partials/normalize.less";		
+@import "partials/typography.less";
+@import "partials/columns.less";		// Grid columns
+@import "partials/icons.less";			// Our Iconography library
+@import "partials/buttons.less";		// Dropdown related rules
+@import "partials/dropdowns.less";		// Dropdown related rules
+@import "partials/pager.less";			// Generic pager and navigator rules
+@import "partials/alert.less";			// Global alert type messages
+@import "partials/misc.less";			// Various small components which will be better grouped this way
+@import "partials/utilities.less";		// utility helper classes
+
+
+
+/* Global Components ------------------------ */
+/* ------------------------------------------ */
+
+@import "modules/main-header.less"; 	// Global Header with navigation
+@import "modules/footer.less";			// Global Footer
+@import "modules/forms.less";			// unified standard form fields
+@import "modules/upload.less";			// upload specific modules and widget
+@import "modules/topics.less";			// topics component elements
+@import "modules/modals.less";			// modal windows for diclaimers, registration, etc
+
+
+/* Project-Specific Styling ----------------- */
+/* ------------------------------------------ */
+// The ordering of the projects should not matter - cascading order is
+// irrelevant. If CSS lives inside project folder, it must be self-contained
+// and cannot affect styling globally.
+
+@import "layout/general.less"; 			// global styles
+@import "layout/main-layout.less"; 		// Main Layout
+@import "layout/product.less";			// Product Page
+
+/* ------------------------------------------ */
+/* Global Utilities, Fallbacks, Mixins ------ */
+/* ------------------------------------------ */
+// These files will affect styling, globally.
+

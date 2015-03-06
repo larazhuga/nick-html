@@ -1,0 +1,173 @@
+// ================================== //
+// topic list groups
+// ================================== //
+
+// Define the topic list grid
+// ------------------------------
+
+.topics-container {
+	.row();
+
+	.topic-item {
+		.cols( @colspan: 1; @total_cols: 2; @gutter: 2; );
+		margin-bottom: 2%;
+		&:nth-of-type(2n) {
+			margin-right: 0;
+		}
+		@media (max-width: @screen-xs) {
+			.cols( @colspan: 1; @total_cols: 1; @gutter: 0; );
+			margin-bottom: 2%;
+		}
+	}
+ }
+
+
+ // Topic item defaults
+ // -----------------------
+
+.topic-item {
+	background: @topic-bg-color;
+	display:  block;
+	position: relative;
+	.border-radius(@border-radius-small);
+	.box-shadow(0px 1px 0px 0px rgba(122, 174, 204, .35));
+	&:extend(.clearfix all);
+}
+
+.topic-picture {
+	width:  (56 * @toRems);
+	height: (56 * @toRems);
+
+	&.pos-left {
+		margin-right: @padding-base-horizontal;
+	}
+	&.pos-right {
+		margin-left:  @padding-base-horizontal;
+	}
+
+	> img {
+		width: 100%;
+		.img-responsive();
+	}
+}
+
+.topic-body {
+	min-height:   (56 * @toRems);
+	margin-right: (40 * @toRems);
+	overflow: hidden;
+	&:extend(.clearfix all);
+}
+
+.topic-title {
+	.font(16, 20, 0);
+	color: @accent-blue;
+	font-family: @font-family-core-sans-re;
+	white-space: nowrap;
+	margin-top: (8 * @toRems);
+
+	a {
+		font-size: inherit;
+		line-height: inherit;
+		font-family: inherit;
+		text-decoration: none;
+		display: inline-block;
+		vertical-align: middle;
+		.text-overflow();
+	}
+
+	small {
+		font-size: @font-size-small;
+		line-height: @line-height-base;
+		display: block;
+		color: @gray-medium;
+	}
+
+	.icon {
+		.font(13, 14, 0);
+		color: @accent-purple;
+		top: 1px;
+	}
+}
+
+.topic-trigger {
+	position: absolute;
+	top:   50%;
+	right: 0;
+	margin-top:  -(10 * @toRems);
+	margin-right: (10 * @toRems);
+
+	.btn-more {
+		border-color: darken(spin(@topic-bg-color, 5%), 10%);
+		.icon {
+			.font(14, 17, 0);
+			color: darken(@gray, 15%);
+			height: (16 * @toRems);
+			top: 0;
+		}
+	}
+}
+
+
+// Topics list in drowpdown panel
+// Topics suggestion
+// -------------------------------------------
+
+.dropdown,
+.dropdown-menu {
+	.topic-item {
+		background: transparent;
+		padding: (6 * @toRems);
+		border-top: solid 1px @border-color;
+		.border-radius(none);
+		.box-shadow(none);
+	}
+
+	.topic-title {
+		color: @gray-dark;
+
+		a {
+			color: inherit;
+		}
+	}
+	
+	// remove border from fist and only child item in the list
+	> li {
+		&:first-child,
+		&:only-child {
+			.topic-item {
+				border: none;
+			}
+		}
+	}
+}
+
+// Interaction
+// TODO: remove this after js implementation
+.topic-control {
+	position: absolute;
+	left:    0;
+	top:     0;
+	bottom:  0;
+	right:   0;
+	z-index: 100;
+}
+.topic-trigger,
+.topic-control {
+	&:hover,
+	&:focus {
+		.dropdown-menu {
+			display: block;
+			visibility: visible;
+		}
+	}
+}
+
+.topic-control {
+	&:hover,
+	&:focus {
+		& + .dropdown .dropdown-menu {
+			display: block;
+			visibility: visible;
+		}
+	}
+}

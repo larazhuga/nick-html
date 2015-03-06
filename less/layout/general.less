@@ -1,0 +1,112 @@
+// Core variables and mixins
+@import "../partials/variables.less";
+@import "../partials/mixins.less";
+
+/* Main Layout --------------------------- */
+// This section will unify all the main layout elements
+/* ------------------------------------------ */
+
+html {
+  .box-sizing(border-box);
+}
+*, *:before, *:after {
+  .box-sizing(inherit);
+}
+
+
+html {
+	font-size:  14px;
+	min-height: 100%;
+	height:     100%;
+
+	@media (min-width: @screen-lg) {
+		font-size:  16px;
+	}
+}
+
+body {
+	background-color: @body-bg-color;
+	color: @body-text-color;
+	min-height: 100%;
+	height: 100%;
+   	width: 100%;
+   	overflow-x: hidden;
+   	overflow-y: scroll;
+}
+
+// Container widths
+// Set the container width, and override it for fixed navbars in media queries.
+
+.container {
+  .container();
+
+  @media (min-width: @screen-sm-min) {
+    width: @container-sm;
+  }
+  @media (min-width: @screen-md-min) {
+    width: @container-md;
+  }
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg;
+  }
+}
+
+
+// Floating individual elements
+
+.pos-left  { float: left !important;}
+.pos-right { float: right !important;}
+
+// Figures
+//
+// We reset this here because previously Normalize had no `figure` margins. This
+// ensures we don't break anyone's use of the element.
+
+figure {
+  margin: 0;
+}
+
+
+// Images
+
+img {
+  vertical-align: middle;
+}
+
+// Responsive images (ensure images don't scale beyond their parents)
+.img-responsive {
+  .img-responsive();
+}
+
+
+// Boxes
+// ---------------------------
+//.boxes(1,2,2,2); 
+// Mixin formula: padding-top, padding-bottom, border-top, border-bottom
+
+.box {
+	background-color:rgba(0,0,0,.1);
+	border:0 solid #999;
+	padding:0 15px;
+	h3:first-child,p:first-child { margin-top:0 }
+}
+
+.box + .box { margin-top: 1.5rem; }
+
+.two {
+	.boxes(1,2,2,2); // Mixin formula: padding-top, padding-bottom, border-top, border-bottom
+}
+.three {
+	.boxes(.5,.5,5,3);
+}
+.four {
+	.boxes(.5,.5,3,3);
+	border-left-width:  3px;
+	border-right-width: 3px;
+}
+.five {
+	.boxes(.5,.5);
+}
+.round {
+	.border-radius(8px);
+}

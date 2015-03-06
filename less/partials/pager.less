@@ -1,0 +1,57 @@
+// =========================================== //
+// Generic pager and navigator rules
+// =========================================== //
+
+.upload-content-navigator {
+	max-width: (70 * @toRems);
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	.border-radius(@border-radius-base);
+	overflow: hidden;
+}
+
+.navigator-item {
+	background-color: @navigator-bg-color;
+	text-align: center;
+	display: block;
+	padding: (8 * @toRems) (12 * @toRems);
+
+	&:not(:first-child),
+	&:not(:only-child) {
+		border-top: solid 1px @navigator-border-color;
+	}
+
+	&:first-child {
+		.border-radius(@border-radius-base @border-radius-base 0 0);
+	}
+	&:last-child {
+		.border-radius(0 0 @border-radius-base @border-radius-base);
+	}
+	
+	&:only-child,
+	&:only-of-type {
+		.border-radius(@border-radius-base);
+	}
+
+	.icon {
+		color: @navigator-color;
+		.font(28, 28, 0);
+	}
+
+	&:hover,
+	&:focus {
+		background-color: @navigator-hover-bg-color;
+		.icon {
+			color: @white;
+		}
+	}
+
+	&:active,
+	&.active {
+		background-color: @navigator-active-bg-color;
+		.icon {
+			color: @navigator-active-color;
+		}
+	}
+}
