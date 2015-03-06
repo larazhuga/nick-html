@@ -1836,6 +1836,9 @@ button.close {
   width: 11.625rem;
   height: 3.75rem;
 }
+.main-footer {
+  background: #19110e;
+}
 .main-footer .icons-nav {
   text-align: center;
 }
