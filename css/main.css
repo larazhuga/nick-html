@@ -1646,9 +1646,6 @@ button.close {
   max-width: 1080px;
   background: #19110e;
 }
-.icon-nav-top {
-  margin-left: 17rem;
-}
 .header-navbar-top {
   padding: 0.75rem 1.2rem;
   height: 4.25rem;
@@ -1666,13 +1663,34 @@ button.close {
   cursor: pointer;
 }
 .menu-header-main {
+  background: #19110e;
+  transition: all 0.4s ease-out 0s;
+  display: none;
   float: left;
   position: absolute;
   width: 16.7rem;
+  border-right: 1px solid #e26c4c;
+  box-shadow: 0 -10px 0 10px #19110e;
+}
+.active-left-block-menu .menu-header-main {
+  display: block;
+}
+.title-menu-left {
+  text-transform: uppercase;
+  color: #e26c4c;
+  font-size: 1.1rem;
+  line-height: ;
+  font-weight: 600;
+  padding: 0.75rem 1.6rem;
+  line-height: 2.75rem;
+}
+.nav-left-main {
+  margin-top: 0;
 }
 .nav-left-main li {
   background: #262731;
   cursor: pointer;
+  margin: 1px 0;
   line-height: 2.75rem;
 }
 .nav-left-main li.active {
@@ -1680,12 +1698,16 @@ button.close {
 }
 .nav-left-main a {
   color: #e26c4c;
+  margin: 0 0.5rem 0 1.325rem;
   font-weight: 700;
   font-size: 0.9rem;
 }
 .nav-left-main .active a {
   color: #080a12;
   font-weight: 900;
+}
+.active-left-block-menu .icon-nav-top {
+  margin-left: 17rem;
 }
 .main-header .icon {
   color: #e26c4c;
@@ -1715,12 +1737,21 @@ button.close {
   height: 2.75rem;
   line-height: 2.75rem;
   background: #1d1e24;
+  top: 0px;
 }
 .nav-left-main .active .icon {
   background: #fb7754;
 }
 .header-nav .active .icon {
   color: #1d1e24;
+}
+@media (max-width: 519px) {
+  .menu-header-main {
+    width: 13.75rem;
+  }
+  .active-left-block-menu .icon-nav-top {
+    margin-left: 13.75rem;
+  }
 }
 .main-footer {
   bottom: 0;

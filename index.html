@@ -27,6 +27,7 @@
 			<div class="header-content-fix clearfix">
 				<div class="menu-header-main">
 					<nav class="header-nav">
+						<div class="title-menu-left">MENU</div><!-- /.title-menu-left -->
 						<ul class="nav-left-main">
 							<li class="active">
 								<i class="icon icon-plus"></i>
@@ -87,6 +88,22 @@
 
 	
 	<!-- jQuery -->
-	<script src="//code.jquery.com/jquery.js"></script>
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.navbar-toggle-header').bind('click', function(){
+				if($('.header-content-fix').hasClass('active-left-block-menu'))
+				{
+					$('.header-content-fix').removeClass('active-left-block-menu')
+				}
+				else
+				{
+					$('.header-content-fix').addClass('active-left-block-menu')
+				}
+			})
+
+		})
+		
+	</script>
 </body>
 </html>

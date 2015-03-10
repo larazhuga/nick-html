@@ -15,9 +15,6 @@
 		background: @bg-content-fix;
 	}
 }
-.icon-nav-top{
-	margin-left: 680 * @toRems;
-}
 .header-navbar-top{
 	padding:(30 * @toRems) (48 * @toRems);
 	height: 170 * @toRems;
@@ -40,20 +37,42 @@
 // header left menu main
 // ---------------------------
 .menu-header-main{
+	background: @bg-content-fix;
+	transition: all 0.4s ease-out 0s;
+	display: none;
 	float:left;
 	position:absolute;
 	width: 668 * @toRems;
+	border-right: 1px solid @border-orandge;
+	box-shadow: 0 -10px 0 10px @bg-content-fix;
 }
-.nav-left-main li{
-	background:@bg-menu-left-txt;
-	cursor: pointer;
-	line-height: 110 * @toRems;	
-	&.active{
-		background:@bg-menu-left-txt-active;	
+.active-left-block-menu .menu-header-main{
+	display: block;
+}
+.title-menu-left{
+	text-transform: uppercase;
+	color:@nav-txt-menu;
+	font-size: 44 * @toRems;
+	line-height:;
+	font-weight:600;
+	padding: (30 * @toRems) (64 * @toRems);
+	line-height: 110 * @toRems;		
+}
+.nav-left-main{
+	margin-top: 0;
+	li{
+		background:@bg-menu-left-txt;
+		cursor: pointer;
+		margin: 1px 0;
+		line-height: 110 * @toRems;	
+		&.active{
+			background:@bg-menu-left-txt-active;	
+		}
 	}
 }
 .nav-left-main a{
 	color: @nav-txt-menu;
+	margin: 0 (20 * @toRems) 0 (53 * @toRems);
 	font-weight:700;
 	font-size: 36 * @toRems;
 }
@@ -61,7 +80,9 @@
 	color: @nav-txt-active;
 	font-weight: 900;
 }
-
+.active-left-block-menu .icon-nav-top{
+	margin-left: 680 * @toRems;
+}
 
 
 
@@ -97,6 +118,7 @@
 	height: 110 * @toRems;
 	line-height: 110 * @toRems;
 	background: @bg-menu-left-icon;
+	top: 0px;
 }
 
 
@@ -107,4 +129,16 @@
 }
 .header-nav .active .icon{
 	color: @nav-header-active;
+}
+
+
+// media header menu
+// ---------------------------
+@media (max-width: 519px) {
+	.menu-header-main{
+		width: 550 * @toRems;
+	}
+	.active-left-block-menu .icon-nav-top{
+		margin-left: 550 * @toRems;
+	}
 }
